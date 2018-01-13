@@ -130,8 +130,8 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- "[file normalize "$origin_dir/arty_spi.srcs/sources_1/bd/d_microblaze/hdl/d_microblaze_wrapper.vhd"]"\
- "[file normalize "$origin_dir/arty_spi.srcs/sources_1/bd/d_microblaze/ip/d_microblaze_mig_7series_0_0/board.prj"]"\
+ "[file normalize "$origin_dir/export/d_microblaze_wrapper.vhd"]"\
+ "[file normalize "$origin_dir/export/board.prj"]"\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -139,11 +139,11 @@ set imported_files [import_files -fileset sources_1 $files]
 # None
 
 # Set 'sources_1' fileset file properties for local files
-set file "hdl/d_microblaze_wrapper.vhd"
+set file "export/d_microblaze_wrapper.vhd"
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 
-set file "d_microblaze_mig_7series_0_0/board.prj"
+set file "export/board.prj"
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "scoped_to_cells" -value "d_microblaze_mig_7series_0_0" -objects $file_obj
 
@@ -161,9 +161,9 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/arty_spi.srcs/constrs_1/new/arty.xdc"]"
+set file "[file normalize "$origin_dir/export/arty.xdc"]"
 set file_imported [import_files -fileset constrs_1 $file]
-set file "new/arty.xdc"
+set file "export/arty.xdc"
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property -name "file_type" -value "XDC" -objects $file_obj
 

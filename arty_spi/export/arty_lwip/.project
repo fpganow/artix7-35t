@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>arty_lwip</name>
-	<comment>Created by SDK v2017.4. arty_lwip_bsp - microblaze_0</comment>
+	<comment>Created by SDK v2017.4. standalone_bsp_0 - microblaze_0</comment>
 	<projects>
-		<project>arty_lwip_bsp</project>
+		<project>standalone_bsp_0</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

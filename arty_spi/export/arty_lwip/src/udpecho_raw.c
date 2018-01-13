@@ -58,10 +58,10 @@ static void
 udpecho_raw_recv(void *arg, struct udp_pcb *upcb, struct pbuf *p,
                  const ip_addr_t *addr, u16_t port)
 {
+	print("udpecho_raw_recv\r\n");
     LWIP_UNUSED_ARG(arg);
     if (p != NULL)
     {
-        print("udpecho_raw_recv\r\n");
         print("WINNING!!!!\r\n");
         /* send received packet back to sender */
         udp_sendto(upcb, p, addr, port);
@@ -78,7 +78,7 @@ udpecho_raw_init(void)
   if (udpecho_raw_pcb != NULL) {
     err_t err;
 
-    err = udp_bind(udpecho_raw_pcb, IPADDR_ANY, 7);
+    err = udp_bind(udpecho_raw_pcb, IPADDR_ANY, 1000);
     if (err == ERR_OK) {
       udp_recv(udpecho_raw_pcb, udpecho_raw_recv, NULL);
     } else {
